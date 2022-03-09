@@ -4,14 +4,20 @@
  */
 package fr.insa.beuvron.cours.m2.pasapasm2.dessin;
 
-import java.awt.Color;
-
 /**
  *
  * @author francois
  */
 public class Figure {
     
-
+    /**
+     * groupe dans lequel est inclue la figure.
+     * null si aucun contenant
+     */
+    private Groupe contenuDans;
+    
+    public Figure() {
+        this.contenuDans = null;
+    }
     
 }

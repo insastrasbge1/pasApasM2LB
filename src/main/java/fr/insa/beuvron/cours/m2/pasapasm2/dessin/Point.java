@@ -15,10 +15,18 @@ public class Point extends FigureSimple{
     private double px;
     private double py;
     
-    public Point(double px,double py,Color c) {
+    public double getPx() {
+        return this.px;
+    }
+    
+    public void setPx(double x) {
+        this.px = x;
+    }
+    
+    public Point(double abs,double ord,Color c) {
         super(c);
-        this.px = px;
-        this.py = py;
+        this.px = abs;
+        this.py = ord;
     }
     
     public Point(double px,double py) {
@@ -42,19 +50,6 @@ public class Point extends FigureSimple{
     
     
 
-    /**
-     * @return the px
-     */
-    public double getPx() {
-        return px;
-    }
-
-    /**
-     * @param px the px to set
-     */
-    public void setPx(double px) {
-        this.px = px;
-    }
 
     /**
      * @return the py
