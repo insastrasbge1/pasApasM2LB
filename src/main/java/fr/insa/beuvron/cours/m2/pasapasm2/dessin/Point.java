@@ -33,19 +33,24 @@ public class Point extends FigureSimple{
         this(px,py,Color.black);
     }
     
+    @Override
     public String toString() {
-        return "(" + this.px + "," + this.py + ")";
+        return "(" + this.px + "," + this.py + " couleur : "
+                + this.getCouleur() +")";
     }
     
+    @Override
+    public double maxX() {
+        return this.px;
+    }
     public static void main(String[] args) {
         Point p1,p2;
         
         p1 = new Point(3, 2, new Color(10,15,200));
         p2 = p1;
         p2.px = 4;
-        System.out.println("p1 : " + p1.px + " , " + p1.py);
-        System.out.println("p2 : " + p2.px + " , " + p2.py);
-        System.out.println("p1 = " + p1 );
+         System.out.println("p1 = " + p1 );
+         System.out.println("p1 = " + p1.toString() );
     }
     
     

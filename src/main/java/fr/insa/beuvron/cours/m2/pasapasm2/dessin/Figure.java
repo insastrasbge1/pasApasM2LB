@@ -8,7 +8,7 @@ package fr.insa.beuvron.cours.m2.pasapasm2.dessin;
  *
  * @author francois
  */
-public class Figure {
+public abstract class Figure {
     
     /**
      * groupe dans lequel est inclue la figure.
@@ -19,5 +19,15 @@ public class Figure {
     public Figure() {
         this.contenuDans = null;
     }
+    
+    public abstract double maxX() ;
+   public  double minX() {
+       // TODO
+       return 0;
+   }
+   
+   public double largeur() {
+       return this.maxX() - this.minX();
+   }
     
 }

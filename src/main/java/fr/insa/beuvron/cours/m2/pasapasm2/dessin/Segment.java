@@ -21,7 +21,11 @@ public class Segment extends FigureSimple {
         this.debut = debut;
         this.fin = fin;
     }
-
+    
+    @Override
+    public double maxX() {
+        return Math.max(this.debut.maxX(), this.fin.maxX());
+    }
     public String toString() {
         return "[" + this.debut.toString() + " ; " + this.fin + "]";
     }

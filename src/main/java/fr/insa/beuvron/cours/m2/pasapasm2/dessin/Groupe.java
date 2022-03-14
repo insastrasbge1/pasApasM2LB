@@ -12,7 +12,7 @@ import java.util.List;
  *
  * @author francois
  */
-public class Groupe {
+public class Groupe extends Figure{
     
     private List<Figure> contient;
     
@@ -22,6 +22,22 @@ public class Groupe {
     
     public Groupe() {
         this.contient = new ArrayList<Figure>();
+    }
+    
+    @Override
+    public double maxX() {
+        if (this.contient.size() == 0) {
+            return 0;
+        } else {
+            double max = this.contient.get(0).maxX();
+            for(int i = 1 ; i < this.contient.size() ; i ++) {
+                double cur = this.contient.get(i).maxX();
+                if (cur > max ) {
+                    max = cur;
+                }
+            }
+            return max;
+        }
     }
     
     
