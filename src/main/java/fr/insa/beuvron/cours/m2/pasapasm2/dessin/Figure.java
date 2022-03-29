@@ -4,11 +4,27 @@
  */
 package fr.insa.beuvron.cours.m2.pasapasm2.dessin;
 
+import javafx.scene.Group;
+
 /**
  *
  * @author francois
  */
 public abstract class Figure {
+
+    /**
+     * @param contenuDans the contenuDans to set
+     */
+    public void setContenuDans(Groupe contenuDans) {
+        this.contenuDans = contenuDans;
+    }
+
+    /**
+     * @return the contenuDans
+     */
+    public Groupe getContenuDans() {
+        return contenuDans;
+    }
     
     /**
      * groupe dans lequel est inclue la figure.
@@ -29,5 +45,7 @@ public abstract class Figure {
    public double largeur() {
        return this.maxX() - this.minX();
    }
+   
+   public abstract Group dessine() ;
     
 }

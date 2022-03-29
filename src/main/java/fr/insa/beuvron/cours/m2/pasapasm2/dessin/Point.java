@@ -4,57 +4,59 @@
  */
 package fr.insa.beuvron.cours.m2.pasapasm2.dessin;
 
-import java.awt.Color;
+import javafx.scene.Group;
+import javafx.scene.paint.Color;
+import javafx.scene.shape.Ellipse;
 
 /**
- * 
+ *
  * @author francois
  */
-public class Point extends FigureSimple{
-    
+public class Point extends FigureSimple {
+
+    public static final double TAILLE_POINT = 5;
+
     private double px;
     private double py;
-    
+
     public double getPx() {
         return this.px;
     }
-    
+
     public void setPx(double x) {
         this.px = x;
     }
-    
-    public Point(double abs,double ord,Color c) {
+
+    public Point(double abs, double ord, Color c) {
         super(c);
         this.px = abs;
         this.py = ord;
     }
-    
-    public Point(double px,double py) {
-        this(px,py,Color.black);
+
+    public Point(double px, double py) {
+        this(px, py, Color.BLACK);
     }
-    
+
     @Override
     public String toString() {
         return "(" + this.px + "," + this.py + " couleur : "
-                + this.getCouleur() +")";
+                + this.getCouleur() + ")";
     }
-    
+
     @Override
     public double maxX() {
         return this.px;
     }
+
     public static void main(String[] args) {
-        Point p1,p2;
-        
-        p1 = new Point(3, 2, new Color(10,15,200));
+        Point p1, p2;
+
+        p1 = new Point(3, 2, new Color(0.1, 0.4, 1, 1));
         p2 = p1;
         p2.px = 4;
-         System.out.println("p1 = " + p1 );
-         System.out.println("p1 = " + p1.toString() );
+        System.out.println("p1 = " + p1);
+        System.out.println("p1 = " + p1.toString());
     }
-    
-    
-
 
     /**
      * @return the py
@@ -69,7 +71,14 @@ public class Point extends FigureSimple{
     public void setPy(double py) {
         this.py = py;
     }
-    
-    
-    
+
+    @Override
+    public Group dessine() {
+        Ellipse res = new Ellipse(this.px, this.py, TAILLE_POINT, TAILLE_POINT);
+        res.setStroke(this.getCouleur());
+        res.setFill(this.getCouleur());
+        Group g = new Group(res);
+        return g;
+    }
+
 }

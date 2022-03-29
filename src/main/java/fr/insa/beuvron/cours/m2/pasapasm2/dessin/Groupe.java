@@ -7,39 +7,78 @@ package fr.insa.beuvron.cours.m2.pasapasm2.dessin;
 
 import java.util.ArrayList;
 import java.util.List;
+import javafx.scene.Group;
+import javafx.scene.paint.Color;
+import javafx.scene.shape.Line;
 
 /**
  *
  * @author francois
  */
-public class Groupe extends Figure{
-    
+public class Groupe extends Figure {
+
     private List<Figure> contient;
-    
+
     public Groupe(List<Figure> contient) {
         this.contient = contient;
     }
-    
+
     public Groupe() {
         this.contient = new ArrayList<Figure>();
     }
-    
+
     @Override
     public double maxX() {
-        if (this.contient.size() == 0) {
+        if (this.getContient().size() == 0) {
             return 0;
         } else {
-            double max = this.contient.get(0).maxX();
-            for(int i = 1 ; i < this.contient.size() ; i ++) {
-                double cur = this.contient.get(i).maxX();
-                if (cur > max ) {
+            double max = this.getContient().get(0).maxX();
+            for (int i = 1; i < this.getContient().size(); i++) {
+                double cur = this.getContient().get(i).maxX();
+                if (cur > max) {
                     max = cur;
                 }
             }
             return max;
         }
     }
-    
-    
-    
+
+    public static Groupe groupeAlea(int nbrPoint, int nbrSegment) {
+        Groupe res = new Groupe();
+        for (int i = 0; i < nbrPoint; i++) {
+            res.addFigure(new Point(Math.random() * 400, Math.random() * 300,
+                    new Color(Math.random(), Math.random(), Math.random(), 1)));
+        }
+        for (int i = 0; i < nbrSegment; i++) {
+            res.addFigure(new Segment(new Point(Math.random() * 400, Math.random() * 300),
+                    new Point(Math.random() * 400, Math.random() * 300),
+                    new Color(Math.random(), Math.random(), Math.random(), 1)));
+        }
+        return res;
+    }
+
+    public void addFigure(Figure f) {
+        if (f.getContenuDans() != null) {
+            throw new Error("figure déjà dans groupe");
+        }
+        this.getContient().add(f);
+        f.setContenuDans(this);
+    }
+
+       @Override
+    public Group dessine() {
+        
+        Group g = new Group();
+        for(int i = 0 ; i < this.getContient().size() ; i ++) {
+            g.getChildren().add(this.getContient().get(i).dessine());
+        }
+        return g;
+    }
+
+    /**
+     * @return the contient
+     */
+    public List<Figure> getContient() {
+        return contient;
+    }
 }

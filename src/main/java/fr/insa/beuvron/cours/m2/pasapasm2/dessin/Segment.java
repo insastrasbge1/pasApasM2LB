@@ -5,7 +5,9 @@
  */
 package fr.insa.beuvron.cours.m2.pasapasm2.dessin;
 
-import java.awt.Color;
+import javafx.scene.Group;
+import javafx.scene.paint.Color;
+import javafx.scene.shape.Line;
 
 /**
  *
@@ -21,22 +23,23 @@ public class Segment extends FigureSimple {
         this.debut = debut;
         this.fin = fin;
     }
-    
+
     @Override
     public double maxX() {
         return Math.max(this.debut.maxX(), this.fin.maxX());
     }
+
     public String toString() {
         return "[" + this.debut.toString() + " ; " + this.fin + "]";
     }
 
     public Segment(Point debut, Point fin) {
-        this(debut, fin, new Color(0, 0, 255));
+        this(debut, fin, Color.BLUE);
     }
 
     public static void main(String[] args) {
-        Segment s = new Segment(new Point(1, 2), new Point(3,4),
-                new Color(200, 100, 30));
+        Segment s = new Segment(new Point(1, 2), new Point(3, 4),
+                Color.ALICEBLUE);
         System.out.println("s = " + s);
 
     }
@@ -53,6 +56,16 @@ public class Segment extends FigureSimple {
      */
     public Point getFin() {
         return fin;
+    }
+
+    @Override
+    public Group dessine() {
+        Line res = new Line(this.getDebut().getPx(), this.getDebut().getPy(),
+                this.getFin().getPx(), this.getFin().getPy());
+        res.setStroke(this.getCouleur());
+        res.setFill(this.getCouleur());
+        Group g = new Group(res);
+        return g;
     }
 
 }

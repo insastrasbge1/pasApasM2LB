@@ -31,7 +31,7 @@
                 <artifactId>javafx-maven-plugin</artifactId>
                 <version>0.0.8</version>
                 <configuration>
-                    <mainClass>fr.insa.beuvron.cours.m2.pasapasm2.dessin.gui.TestFx
+                    <mainClass>fr.insa.beuvron.cours.m2.pasapasm2.dessin.gui.MainFx
                     </mainClass>
                 </configuration>
             </plugin>
