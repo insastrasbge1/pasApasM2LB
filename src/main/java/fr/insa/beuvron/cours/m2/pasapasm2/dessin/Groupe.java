@@ -12,7 +12,7 @@ import javafx.scene.paint.Color;
 import javafx.scene.shape.Line;
 
 /**
- *
+ * test github
  * @author francois
  */
 public class Groupe extends Figure {
