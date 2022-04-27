@@ -28,6 +28,7 @@ public class OutilsTop extends HBox {
         this.getChildren().add(this.couleur);
         this.getChildren().add(this.zoomIn);
         this.getChildren().add(this.zoomOut);
+        FxUtils.setSimpleBorder(this, Color.GREEN, 2);
         
     }
     

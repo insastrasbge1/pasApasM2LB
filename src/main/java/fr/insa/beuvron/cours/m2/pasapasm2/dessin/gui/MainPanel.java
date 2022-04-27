@@ -21,6 +21,9 @@ public class MainPanel extends BorderPane {
     }
     
     private Groupe model;
+    private Controleur control;
+    
+    
     
     private OutilsTop outilsTop;
     private OutilsLeft outilsLeft;
@@ -29,12 +32,19 @@ public class MainPanel extends BorderPane {
     public MainPanel(Groupe model) {
         this.model = model;
         this.outilsTop = new OutilsTop();
-        this.outilsLeft = new OutilsLeft();
+        this.outilsLeft = new OutilsLeft(this);
         this.dessin = new DessinPane(this);
         
         this.setTop(this.outilsTop);
         this.setLeft(this.outilsLeft);
         this.setCenter(this.dessin);
+    }
+
+    /**
+     * @return the control
+     */
+    public Controleur getControl() {
+        return control;
     }
     
 }

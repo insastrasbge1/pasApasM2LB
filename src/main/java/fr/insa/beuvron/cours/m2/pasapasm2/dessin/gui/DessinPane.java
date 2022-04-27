@@ -5,9 +5,10 @@
 package fr.insa.beuvron.cours.m2.pasapasm2.dessin.gui;
 
 import javafx.scene.layout.Pane;
+import javafx.scene.shape.Rectangle;
 
 /**
- *
+ * 
  * @author francois
  */
 public class DessinPane extends Pane{
@@ -16,6 +17,10 @@ public class DessinPane extends Pane{
     
     public DessinPane(MainPanel main) {
         super();
+        Rectangle clip = new Rectangle();
+        clip.heightProperty().bind(this.heightProperty());
+        clip.widthProperty().bind(this.widthProperty());
+        this.setClip(clip);
         this.main = main;
         this.redrawAll();
     }
