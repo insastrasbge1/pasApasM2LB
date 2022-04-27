@@ -16,13 +16,16 @@ import javafx.stage.Stage;
  * @author francois
  */
 public class MainFx extends Application {
-        @Override
+
+    @Override  
     public void start(Stage primaryStage) throws Exception {
         Groupe test = Groupe.groupeAlea(10, 5);
-            System.out.println("taille " + test.getContient().size());
+//        Groupe test = new Groupe();
+        System.out.println("taille " + test.getContient().size());
         MainPanel main = new MainPanel(test);
         Scene s = new Scene(main);
         primaryStage.setScene(s);
+        primaryStage.setTitle("Dessin 2D");
         primaryStage.show();
     }
 
