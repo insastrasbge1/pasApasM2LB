@@ -46,12 +46,12 @@ public class Groupe extends Figure {
     public static Groupe groupeAlea(int nbrPoint, int nbrSegment) {
         Groupe res = new Groupe();
         for (int i = 0; i < nbrPoint; i++) {
-            res.addFigure(new Point(Math.random() * 400, Math.random() * 300,
+            res.addFigure(new Point(Math.random() * 400-50, Math.random() * 300-50,
                     new Color(Math.random(), Math.random(), Math.random(), 1)));
         }
         for (int i = 0; i < nbrSegment; i++) {
-            res.addFigure(new Segment(new Point(Math.random() * 400, Math.random() * 300),
-                    new Point(Math.random() * 400, Math.random() * 300),
+            res.addFigure(new Segment(new Point(Math.random() * 400-50, Math.random() * 300-50),
+                    new Point(Math.random() * 400-50, Math.random() * 300-50),
                     new Color(Math.random(), Math.random(), Math.random(), 1)));
         }
         return res;
